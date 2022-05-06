@@ -25,9 +25,16 @@ function UserController() {
   // objeto JS con los metodos CRUD y variables globales del estado
   let controler = {
     global: global,
-    updateStorage: (dataUsers) => {
-      setUsersContainer(dataUsers);
-      window.localStorage.setItem("dataUsers", JSON.stringify(dataUsers));
+    updateStorage: async (dataUsers) => {
+      try {
+        await setUsersContainer(dataUsers);
+        await window.localStorage.setItem(
+          "dataUsers",
+          JSON.stringify(dataUsers)
+        );
+      } catch (error) {
+        console.error(error);
+      }
     },
     updateGlobal: (variables) => {
       setGlobal({ ...global, ...variables });
