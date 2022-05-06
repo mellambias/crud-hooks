@@ -52,7 +52,7 @@ const UsersTable = ({
                     className="button muted-button"
                     onClick={() => edit(user)}
                   >
-                    Edit-{isEditMode.toString()}
+                    Edit
                   </button>
                   <button
                     className="button muted-button"
